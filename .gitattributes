@@ -11,3 +11,5 @@
 *.gd filter=lfs diff=lfs merge=lfs -text
 *.uid filter=lfs diff=lfs merge=lfs -text
 *.tres filter=lfs diff=lfs merge=lfs -text
+*.DS_Store filter=lfs diff=lfs merge=lfs -text
+*.m4a filter=lfs diff=lfs merge=lfs -text

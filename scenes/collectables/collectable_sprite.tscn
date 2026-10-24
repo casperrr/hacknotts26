@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bvg1pli3d3w13"]
+
+[ext_resource type="Texture2D" uid="uid://vdhjskf6cu1b" path="res://assets/colin.png" id="1_supcx"]
+[ext_resource type="Script" uid="uid://dek3jjoy2w7bm" path="res://scripts/animation.gd" id="2_3s4e7"]
+
+[node name="Sprite3D" type="Sprite3D" unique_id=1205081846]
+billboard = 2
+texture = ExtResource("1_supcx")
+script = ExtResource("2_3s4e7")

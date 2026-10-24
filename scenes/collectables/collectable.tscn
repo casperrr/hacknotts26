@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://w0pwrnt2sc7f"]
+
+[ext_resource type="Script" uid="uid://cj4e8eo4lpwps" path="res://scripts/collectable.gd" id="1_4v1pg"]
+[ext_resource type="PackedScene" uid="uid://bvg1pli3d3w13" path="res://scenes/collectables/collectable_sprite.tscn" id="2_te2od"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5gso3"]
+
+[node name="Collectable" type="Node3D" unique_id=365316923]
+script = ExtResource("1_4v1pg")
+
+[node name="Sprite3D" parent="." unique_id=1205081846 instance=ExtResource("2_te2od")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=844198921]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=485307555]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_5gso3")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

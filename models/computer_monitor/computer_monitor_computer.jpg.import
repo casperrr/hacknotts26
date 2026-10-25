@@ -1,3 +1,44 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:480538a67492e3c1f9f1241ec73f38ab7e3d85e849024489d6b824f621146647
-size 1117
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ibca6ivvcyri"
+path.s3tc="res://.godot/imported/computer_monitor_computer.jpg-0797daaa3ef1253d95a52d8b3e10aad9.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "81b62f94791f89e7a9d3456059edafea"
+}
+
+[deps]
+
+source_file="res://models/computer_monitor/computer_monitor_computer.jpg"
+dest_files=["res://.godot/imported/computer_monitor_computer.jpg-0797daaa3ef1253d95a52d8b3e10aad9.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

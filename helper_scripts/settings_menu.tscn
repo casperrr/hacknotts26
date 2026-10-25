@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a0b87ab2d33bc8bd013acdc68a4dbd732037d350ce27882b96fabc1a5b8bc284
-size 353
+[gd_scene format=3 uid="uid://wpfb5y77c2ep"]
+
+[ext_resource type="Script" uid="uid://dyv6xmf2b1rxr" path="res://settings_menu.gd" id="1_eeop5"]
+
+[node name="SettingsMenu" type="Control" unique_id=2141683395]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eeop5")

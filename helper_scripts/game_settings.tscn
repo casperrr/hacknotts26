@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8d7a067aa3fa5c836af0a1d6d2a344ef3f0fb740d76ecce89c9bb0771432ee3d
-size 237
+[gd_scene format=3 uid="uid://b8jxx43c8i386"]
+
+[ext_resource type="Script" uid="uid://5ldl3rcpcqpq" path="res://game_settings.gd" id="1_80roq"]
+
+[node name="GameSettings" type="Node" unique_id=1148779716]
+script = ExtResource("1_80roq")

@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1fd8d72625257ec1bf49b071d28bc0702dc80cb735f5b8c3c45889c8bf23dab6
-size 1580
+[gd_scene format=3 uid="uid://cmbrlwhb6f1ru"]
+
+[ext_resource type="PackedScene" uid="uid://bqelflkxdl0mo" path="res://models/full_tower_desktop/computer_tower.glb" id="1_u70f8"]
+[ext_resource type="PackedScene" uid="uid://tceoa5g8b42" path="res://models/desk/desk2_weathered.glb" id="2_pgnu4"]
+[ext_resource type="PackedScene" uid="uid://csr53bgurakfx" path="res://models/computer_monitor/computer_monitor.glb" id="3_e16g1"]
+[ext_resource type="PackedScene" uid="uid://7468qyitehs4" path="res://models/keyboard/computer_keyboard.glb" id="4_rn3y8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46cw0"]
+size = Vector3(1.1240234, 0.58081055, 1)
+
+[node name="full_Collision_desktop" type="StaticBody3D" unique_id=1260163476]
+
+[node name="computer_tower2" parent="." unique_id=1169351980 instance=ExtResource("1_u70f8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94989926, 0.91436696, -0.026374638)
+
+[node name="desk2_weathered2" parent="." unique_id=659584610 instance=ExtResource("2_pgnu4")]
+
+[node name="computer_monitor2" parent="." unique_id=258956056 instance=ExtResource("3_e16g1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.061040714, 0.8997644, -0.42408228)
+
+[node name="computer_keyboard2" parent="." unique_id=399417771 instance=ExtResource("4_rn3y8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09794316, 0.89203626, 0.36642265)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1131230107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06201172, 1.1919963, 0)
+shape = SubResource("BoxShape3D_46cw0")

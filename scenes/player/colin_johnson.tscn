@@ -1,3 +1,48 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8b858c21809ab3722615350d663e7d9a79be360b6e4a76f0ac39b224dd142dca
-size 1718
+[gd_scene format=3 uid="uid://l3aco6bho01f"]
+
+[ext_resource type="Script" uid="uid://l16q7npmubis" path="res://scenes/player/colin_johnson.gd" id="1_i68jq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_umclc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_umclc"]
+
+[node name="ColinJohnson" type="CharacterBody3D" unique_id=971719043]
+script = ExtResource("1_i68jq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1746710718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99368286, 0)
+shape = SubResource("CapsuleShape3D_umclc")
+
+[node name="Visual" type="Node3D" parent="." unique_id=2133934871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual" unique_id=1828258700]
+mesh = SubResource("CapsuleMesh_umclc")
+
+[node name="Head" type="Node3D" parent="." unique_id=1358755945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1739630769]
+
+[node name="RayCast3D" type="RayCast3D" parent="Head" unique_id=52499285]
+transform = Transform3D(1, 0, 0, 0, 0.0056203487, -1.0038053, 0, 3.0992799, 0.0018203377, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1004422623]
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer" unique_id=562737324]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InteractText" type="Label" parent="CanvasLayer/BoxContainer" unique_id=1139187698]
+layout_mode = 2
+text = "
+"

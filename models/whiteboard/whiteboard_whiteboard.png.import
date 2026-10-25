@@ -1,3 +1,44 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b47e64c8939d207f4005427df2af884a9b188b250e7bdd93b044b2657baf1abf
-size 1100
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dxddqe0he33ru"
+path.s3tc="res://.godot/imported/whiteboard_whiteboard.png-08738fcf75f73c0679d009b65cf49205.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "1481ba72eda1b18524a7660e5b86d584"
+}
+
+[deps]
+
+source_file="res://models/whiteboard/whiteboard_whiteboard.png"
+dest_files=["res://.godot/imported/whiteboard_whiteboard.png-08738fcf75f73c0679d009b65cf49205.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ck550hbdc82qq"]
+
+[ext_resource type="Script" uid="uid://bjdi3v6spwxlg" path="res://scripts/timer.gd" id="1_srplv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5gso3"]
+
+[node name="Control" type="Control" unique_id=1397470798]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=988835921]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CenterContainer" unique_id=300425025]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_5gso3")
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="Timer" type="Timer" parent="." unique_id=481177805]
+script = ExtResource("1_srplv")
+
+[connection signal="timeout" from="Timer" to="CenterContainer/Label" method="_on_timer_timeout"]

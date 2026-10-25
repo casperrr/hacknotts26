@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://vmmmsc3ytl03"]
+
+[ext_resource type="PackedScene" uid="uid://d21fg0f77jvi0" path="res://models/exit_phone/desk_phone.glb" id="1_8lgdx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46cw0"]
+size = Vector3(0.35604858, 0.08947754, 0.32980347)
+
+[node name="collision_exit_phone" type="StaticBody3D" unique_id=605236947]
+
+[node name="desk_phone2" parent="." unique_id=309034174 instance=ExtResource("1_8lgdx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=182831469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009536743, 0.040433645, 0.0012664795)
+shape = SubResource("BoxShape3D_46cw0")

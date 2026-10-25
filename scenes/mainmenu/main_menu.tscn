@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://xsb0fpj8geac"]
+
+[ext_resource type="PackedScene" uid="uid://j78mhrxusu85" path="res://models/test_pc_model/test_pc_collision.tscn" id="3_3n1md"]
+[ext_resource type="PackedScene" uid="uid://l3aco6bho01f" path="res://scenes/player/colin_johnson.tscn" id="4_a3yut"]
+[ext_resource type="PackedScene" uid="uid://cmbrlwhb6f1ru" path="res://models/full_collision_desktop_scene/full_collision_desktop.tscn" id="4_yn0lx"]
+[ext_resource type="PackedScene" uid="uid://vmmmsc3ytl03" path="res://models/collision_exit_phone/collision_exit_phone.tscn" id="5_3n1md"]
+[ext_resource type="Script" uid="uid://jqhuahd0j67h" path="res://models/full_collision_desktop_scene/full_collision_desktop.gd" id="5_a3yut"]
+[ext_resource type="Script" uid="uid://lfj3fnx2pmv7" path="res://models/collision_exit_phone/collision_exit_phone.gd" id="7_l3hwl"]
+[ext_resource type="AudioStream" uid="uid://d564qc1br2ij" path="res://assets/Eddy.wav" id="8_otieh"]
+[ext_resource type="Script" uid="uid://c6k3xf0o8jiqo" path="res://scenes/mainmenu/settings_menu.gd" id="10_n3o3g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhts7"]
+albedo_color = Color(0.3372549, 0.31764707, 0.41568628, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06t4h"]
+transparency = 1
+blend_mode = 2
+depth_test = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukhca"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46cw0"]
+
+[node name="Node3D" type="Node3D" unique_id=1343235841]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=2048140031]
+material_override = SubResource("StandardMaterial3D_rhts7")
+use_collision = true
+
+[node name="Ceiling" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1849367146]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -0.008592367, 1.198166, 0.0029432774)
+size = Vector3(3.9923096, 0.01, 2.992836)
+
+[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1223222819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20608535, -0.0022013187)
+size = Vector3(4, 0.01, 3)
+
+[node name="WallWindow" type="CSGBox3D" parent="CSGCombiner3D" unique_id=107090623]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.007012248, 0.69402117, 1.501656)
+size = Vector3(3.9907227, 0.025996093, 1.0043945)
+
+[node name="Window" type="CSGBox3D" parent="CSGCombiner3D/WallWindow" unique_id=1471262391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0036807656, 0.08870256, -0.07937157)
+material_override = SubResource("StandardMaterial3D_06t4h")
+operation = 2
+size = Vector3(2, 0.20553467, 0.40039063)
+
+[node name="WallLeft" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1471522487]
+transform = Transform3D(-3.9571066e-10, 0.99995905, -0.009052814, 4.3709598e-08, 0.009052814, 0.99995905, 1, 0, -4.371139e-08, 1.9868389, 0.7023163, 0.0075953007)
+size = Vector3(3.0083618, 0.01, 0.9929199)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CSGCombiner3D" unique_id=1044373895]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.2183546, 0)
+visible = false
+light_color = Color(1, 1, 0.50980395, 1)
+light_energy = 3.462
+
+[node name="WallRight" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1056142697]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -2.003749, 0.69679785, 0.001591295)
+size = Vector3(2.9938877, 0.01, 0.9984131)
+
+[node name="WallExit" type="CSGBox3D" parent="CSGCombiner3D" unique_id=891195493]
+transform = Transform3D(-1, 4.371139e-08, 3.5527137e-15, -3.5527137e-15, -8.742278e-08, 1, 4.3711385e-08, 1, 8.742278e-08, -0.0059541464, 0.6983891, -1.5004549)
+size = Vector3(3.988677, 0.01, 0.9984131)
+
+[node name="DoorFrame" type="CSGBox3D" parent="CSGCombiner3D/WallExit" unique_id=592803463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021717783, 0.015460968, -0.19142157)
+operation = 2
+size = Vector3(0.34421387, 0.25735474, 0.6180115)
+
+[node name="Collision_PC" parent="CSGCombiner3D" unique_id=2092645269 instance=ExtResource("3_3n1md")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6379015, 0.21784717, 1.1976688)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGCombiner3D" unique_id=456179681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8065629, 0)
+light_color = Color(0.6862745, 0.70980394, 0.09019608, 1)
+
+[node name="Whiteboard" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1293765036]
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 1.8797174, 0.6700736, -0.5356502)
+material_override = SubResource("StandardMaterial3D_ukhca")
+size = Vector3(0.001, 0.52056885, 1)
+material = SubResource("StandardMaterial3D_46cw0")
+
+[node name="full_Collision_desktop" parent="CSGCombiner3D" unique_id=1260163476 instance=ExtResource("4_yn0lx")]
+transform = Transform3D(-0.29999077, 0, -0.0023525497, 0, 0.29999998, 0, 0.0023525497, 0, -0.29999077, 0, 0.21837568, 1.3082359)
+script = ExtResource("5_a3yut")
+
+[node name="collision_exit_phone" parent="CSGCombiner3D" unique_id=605236947 instance=ExtResource("5_3n1md")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.28233218, 0.48867917, 1.2000824)
+script = ExtResource("7_l3hwl")
+exit_sound = ExtResource("8_otieh")
+
+[node name="ColinJohnson" parent="." unique_id=971719043 instance=ExtResource("4_a3yut")]
+transform = Transform3D(-0.2993699, 0, 0.019433586, 0, 0.29999998, 0, -0.019433586, 0, -0.2993699, 0, 0.23752314, 0)
+
+[node name="SettingsMenu" type="CanvasLayer" parent="." unique_id=217864663]
+script = ExtResource("10_n3o3g")
+
+[node name="Control" type="Control" parent="SettingsMenu" unique_id=888410606]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Background" type="ColorRect" parent="SettingsMenu/Control" unique_id=587042498]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.29411766)
+
+[node name="CenterContainer" type="CenterContainer" parent="SettingsMenu/Control" unique_id=185012385]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SettingsMenu/Control/CenterContainer" unique_id=585527221]
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/Control/CenterContainer/PanelContainer" unique_id=2083736481]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Ttile" type="Label" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=150699611]
+layout_mode = 2
+text = "Settings  Configuration"
+
+[node name="VOlumeRow" type="HBoxContainer" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=1735231132]
+layout_mode = 2
+
+[node name="VolumeTitle" type="Label" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=515675210]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="VolumeValue" type="Label" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=1502331251]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Master Volume"
+
+[node name="AudioSlider" type="HSlider" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=830038981]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="sensRow" type="HBoxContainer" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=1232599028]
+layout_mode = 2
+
+[node name="SensTitle" type="Label" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=1259787436]
+layout_mode = 2
+text = "Sensitivity"
+
+[node name="SensitivityValue" type="Label" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=1822756468]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Sensitivity"
+
+[node name="SensitivitySlider" type="HSlider" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=1365144184]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 20.0
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=1568864437]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fullscreen
+"
+
+[node name="VSyncCheckBox" type="CheckBox" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=2034746404]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Vsync
+
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer" unique_id=1866200379]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1873165175]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reset Defaults
+
+"
+
+[node name="ResumeButton" type="Button" parent="SettingsMenu/Control/CenterContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=2099651787]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume Slop
+
+"

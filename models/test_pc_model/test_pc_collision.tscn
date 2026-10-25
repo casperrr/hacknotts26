@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://j78mhrxusu85"]
+
+[ext_resource type="Script" uid="uid://dy67x2toh7b4e" path="res://models/test_pc_model/test_pc_collision.gd" id="1_jiepx"]
+[ext_resource type="PackedScene" uid="uid://gkxc27rk7ut6" path="res://models/test_pc_model/test_pc.tscn" id="1_xu8bu"]
+[ext_resource type="PackedScene" uid="uid://wpfb5y77c2ep" path="res://helper_scripts/settings_menu.tscn" id="2_o3wq6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46cw0"]
+size = Vector3(0.70217896, 0.23347092, 0.6719971)
+
+[node name="Collision_PC" type="StaticBody3D" unique_id=2092645269]
+script = ExtResource("1_jiepx")
+settings_menu_scene = ExtResource("2_o3wq6")
+
+[node name="Test_PC" parent="." unique_id=2139376978 instance=ExtResource("1_xu8bu")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=987201392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00010615587, 0.11028662, 0.02933693)
+shape = SubResource("BoxShape3D_46cw0")

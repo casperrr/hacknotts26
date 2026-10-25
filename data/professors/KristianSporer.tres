@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Professor" format=3 uid="uid://btpeldr463ldj"]
+
+[ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_yw7ce"]
+
+[resource]
+script = ExtResource("1_yw7ce")
+name = "Kristian Sporer"
+metadata/_custom_type_script = "uid://cbkjcgkx4gw01"

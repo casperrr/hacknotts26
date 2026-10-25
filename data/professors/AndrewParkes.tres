@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Professor" format=3 uid="uid://bsc6k8h4c4vtw"]
+
+[ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_faibg"]
+
+[resource]
+script = ExtResource("1_faibg")
+name = "Andrew Parkes"
+metadata/_custom_type_script = "uid://cbkjcgkx4gw01"

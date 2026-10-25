@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cnf6n6mu4mga6"]
+
+[ext_resource type="Script" uid="uid://cguftmcgyk4or" path="res://scripts/map/Door.gd" id="1_ba8gm"]
+
+[node name="Door" type="Node3D" unique_id=1190504420]
+script = ExtResource("1_ba8gm")

@@ -1,10 +1,21 @@
 [gd_scene format=3 uid="uid://l3aco6bho01f"]
 
 [ext_resource type="Script" uid="uid://l16q7npmubis" path="res://scenes/player/colin_johnson.gd" id="1_i68jq"]
+[ext_resource type="SystemFont" path="res://assets/ui_font.tres" id="2_font"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_umclc"]
+radius = 0.3
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_umclc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hud"]
+font = ExtResource("2_font")
+font_size = 34
+outline_size = 10
+outline_color = Color(0, 0, 0, 0.85)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_offset = Vector2(2, 3)
 
 [node name="ColinJohnson" type="CharacterBody3D" unique_id=971719043]
 script = ExtResource("1_i68jq")
@@ -23,3 +34,22 @@ mesh = SubResource("CapsuleMesh_umclc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4092934, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1739630769]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1978126226]
+
+[node name="Message" type="Label" parent="HUD" unique_id=163138812]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_hud")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageTimer" type="Timer" parent="HUD" unique_id=352550340]
+one_shot = true

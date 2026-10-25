@@ -5,6 +5,7 @@ var rect:  Rect2i
 var left:  BSPNode 
 var right: BSPNode
 var is_vert := false # True where self is to be split vertically
+var corridor: Rect2i
 
 func _init(r: Rect2i) -> void:
 	rect = r
@@ -16,6 +17,14 @@ func get_leaves() -> Array:
 	if is_leaf():
 		return [self]
 	return left.get_leaves() + right.get_leaves()
+
+func get_corridors() -> Array[Rect2i]:
+	var out: Array[Rect2i] = []
+	if not is_leaf():
+		out.append(corridor)
+		out.append_array(left.get_corridors())
+		out.append_array(right.get_corridors())
+	return out
 
 func split(rng: RandomNumberGenerator, min_size: int, max_size: int, gap: int) -> void:
 	var w := rect.size.x
@@ -34,9 +43,11 @@ func split(rng: RandomNumberGenerator, min_size: int, max_size: int, gap: int) -
 	if is_vert:
 		left     = BSPNode.new(Rect2i(p.x, p.y, cut, h))
 		right    = BSPNode.new(Rect2i(p.x + cut + gap, p.y, w - cut - gap, h))
+		corridor = Rect2i(p.x + cut, p.y, gap, h)
 	else:
 		left     = BSPNode.new(Rect2i(p.x, p.y, w, cut))
 		right    = BSPNode.new(Rect2i(p.x, p.y + cut + gap, w, h - cut - gap))
+		corridor = Rect2i(p.x, p.y + cut, w, gap)
 
 	left.split (rng, min_size, max_size, gap)
 	right.split(rng, min_size, max_size, gap)

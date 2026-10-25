@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Professor" format=3 uid="uid://b8kr5n37ibjtj"]
 
 [ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_u5b4s"]
+[ext_resource type="AudioStream" uid="uid://w8bt40rm3h3b" path="res://assets/audio/POGAMISPOOF.mp3" id="2_jmf0x"]
 
 [resource]
 script = ExtResource("1_u5b4s")
 name = "Thorsten Altenkirch"
+voice_note = ExtResource("2_jmf0x")
 metadata/_custom_type_script = "uid://cbkjcgkx4gw01"

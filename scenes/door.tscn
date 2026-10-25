@@ -2,12 +2,26 @@
 
 [ext_resource type="Script" uid="uid://cguftmcgyk4or" path="res://scripts/map/Door.gd" id="1_ba8gm"]
 [ext_resource type="PackedScene" path="res://addons/psx_office_kit/props/door_office.tscn" id="2_83dcw"]
+[ext_resource type="PackedScene" path="res://addons/psx_office_kit/props/wall_doorway.tscn" id="3_la1wf"]
+[ext_resource type="SystemFont" path="res://assets/ui_font.tres" id="4_font"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plate"]
+albedo_color = Color(0.08, 0.08, 0.09, 1)
+metallic = 0.3
+roughness = 0.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_plate"]
+material = SubResource("StandardMaterial3D_plate")
+size = Vector3(0.4, 0.11, 0.01)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpek1"]
 size = Vector3(2, 2, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lecww"]
 size = Vector3(2, 2, 2.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_inside"]
+size = Vector3(2, 2, 2)
 
 [node name="Door" type="Node3D" unique_id=1190504420]
 script = ExtResource("1_ba8gm")
@@ -19,11 +33,23 @@ layers = 1048575
 
 [node name="Portrait" type="Sprite3D" parent="Model/door_office/door_office_leaf" index="1" unique_id=1062901102]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 1.4, 0.08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27, 1.74, 0.08)
+pixel_size = 0.001
 
-[node name="Nameplate" type="Label3D" parent="Model/door_office/door_office_leaf" index="2" unique_id=2018011874]
+[node name="Plate" type="MeshInstance3D" parent="Model/door_office/door_office_leaf" index="2" unique_id=1739284561]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 1, 0.08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27, 1.45, 0.0725)
+mesh = SubResource("BoxMesh_plate")
+
+[node name="Nameplate" type="Label3D" parent="Model/door_office/door_office_leaf/Plate" unique_id=2018011874]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0075)
+modulate = Color(0.95, 0.94, 0.88, 1)
+font = ExtResource("4_font")
+font_size = 64
+outline_size = 0
+
+[node name="wall_doorway" parent="." unique_id=1097346031 instance=ExtResource("3_la1wf")]
 
 [node name="PassBy" type="Area3D" parent="." unique_id=451987632]
 
@@ -31,11 +57,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 1, 0.08)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
 shape = SubResource("BoxShape3D_rpek1")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=183379647]
+[node name="Reach" type="Area3D" parent="." unique_id=183379647]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1340885970]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Reach" unique_id=1340885970]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
 shape = SubResource("BoxShape3D_lecww")
+
+[node name="Inside" type="Area3D" parent="." unique_id=902374615]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Inside" unique_id=1284756930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5)
+shape = SubResource("BoxShape3D_inside")
 
 [node name="VoiceNote" type="AudioStreamPlayer3D" parent="." unique_id=82007495]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

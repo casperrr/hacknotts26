@@ -16,7 +16,12 @@ const EMPTY := -1 # Behind locked doors
 @export_range(5, 20) var office_width           := 6
 @export var professors: Array[Professor] = []  # one office each
 @export var door_scene: PackedScene  # root node needs door.gd attached, do not move it
-@export var colin: CharacterBody3D
+@export var colin: Colin
+@export var light_scene: PackedScene
+@export var light_spacing := 16.0
+@export var max_lights_per_corridor := 3
+@export_range(0.0, 1.0) var dead_light_chance := 0.2
+@export_range(0.0, 1.0) var flicker_chance := 0.25
 
 @onready var grid_map: GridMap = $GridMap
 @onready var furniture_map: GridMap = $Furniture
@@ -30,6 +35,8 @@ var doors: Array[Dictionary] = []  # { cell, facing, office, block, professor, p
 var staff_room := {}  # { cell, facing, office, block, spawn }, also listed in doors
 var student_services := {}  # { cell, facing, office, block, spawn }, open to the corridor, no door
 var _door_nodes: Node3D
+var corridors: Array[Rect2i] = []
+var _light_nodes: Node3D
 
 func _ready() -> void:
 	if grid_map.mesh_library == null:
@@ -52,6 +59,9 @@ func generate() -> void:
 	_fill(bounds, FLOOR)  # whatever isn't covered by a block = corridor
 	var root := BSPNode.new(bounds)
 	root.split(rng, block_min_size, block_max_size, corridor_width)
+	corridors.clear()
+	for corridor: Rect2i in root.get_corridors():
+		corridors.append(corridor.intersection(bounds.grow(-1)))
 
 	var rows := []  # each row's door slots, in order along the row
 	for block: BSPNode in root.get_leaves():
@@ -75,7 +85,7 @@ func generate() -> void:
 	if not staff_room.is_empty():
 		_special_room(staff_room, STAFF_ROOM_FLOOR, STAFF_ROOM_WALL, STAFF_ROOM_CEILING,
 				STAFF_ROOM_TABLE, STAFF_ROOM_WALL)
-		staff_room.merge({"professor": null, "present": false, "locked": false})
+		staff_room.merge({"professor": null, "present": false, "locked": false, "title": "Staff Room"})
 		_add_door(staff_room)
 		doors.append(staff_room)
 	if not student_services.is_empty():
@@ -83,7 +93,12 @@ func generate() -> void:
 				STUDENT_SERVICES_CEILING, STUDENT_SERVICES_DESK, STUDENT_SERVICES_WALL_LOGO)
 		_open_front(student_services, STUDENT_SERVICES_FLOOR)
 
+	for cell: Vector2i in tiles:
+		if tiles[cell] in [FLOOR, OFFICE_FLOOR, DOOR, SPAWN, STAFF_ROOM_FLOOR, STUDENT_SERVICES_FLOOR] and not ceilings.has(cell):
+			ceilings[cell] = CEILING
+
 	_build()
+	_spawn_lights()
 	_place_colin()
 
 # Takes two neighbouring slots from a random row and merges them into one room - helper to create the staff room!
@@ -223,16 +238,27 @@ func _draw_outline(r: Rect2i, item := WALL) -> void:
 		tiles[Vector2i(r.end.x - 1, y)] = item
 
 func _place_colin() -> void:
-	var corridor: Array[Vector2i] = []
-	for cell: Vector2i in tiles:
-		if tiles[cell] == FLOOR: # only corridors are plain floor
-			corridor.append(cell)
-	if corridor.is_empty():
+	if colin == null or corridors.is_empty():
 		return
-	var spawn := corridor[rng.randi() % corridor.size()]
+	var r := corridors[rng.randi() % corridors.size()]
+	var spawn := Vector2i(rng.randi_range(r.position.x, r.end.x - 1), rng.randi_range(r.position.y, r.end.y - 1))
 	var size := grid_map.cell_size
-	colin.global_position = grid_map.to_global(Vector3((spawn.x + 0.5) * size.x, 0.1, (spawn.y + 0.5) * size.z))
-	colin.velocity = Vector3.ZERO
+	var look := _longest_view(spawn)
+	colin.respawn(grid_map.to_global(Vector3((spawn.x + 0.5) * size.x, 0.1, (spawn.y + 0.5) * size.z)),
+			atan2(-look.x, -look.y))
+
+# The direction from a cell with the longest straight run of corridor
+func _longest_view(from: Vector2i) -> Vector2i:
+	var best := Vector2i.UP
+	var best_run := -1
+	for dir: Vector2i in [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]:
+		var run := 0
+		while tiles.get(from + dir * (run + 1)) == FLOOR:
+			run += 1
+		if run > best_run:
+			best = dir
+			best_run = run
+	return best
 
 func _build() -> void:
 	grid_map.clear()
@@ -267,8 +293,35 @@ func _spawn_doors() -> void:
 		node.position = Vector3((door.cell.x + 0.5) * size.x, 0.0, (door.cell.y + 0.5) * size.z)
 		node.rotation.y = atan2(door.facing.x, door.facing.y)  # door's front (+Z) faces the corridor
 		_door_nodes.add_child(node)
-		node.setup(door.professor, door.locked)
+		node.setup(door.professor, door.locked, door.get("title", ""))
 		door.node = node
+
+func _spawn_lights() -> void:
+	if is_instance_valid(_light_nodes):
+		_light_nodes.queue_free()
+	_light_nodes = Node3D.new()
+	grid_map.add_child(_light_nodes)
+	if light_scene == null:
+		return
+
+	var size := grid_map.cell_size
+	for r: Rect2i in corridors:
+		var along_x := r.size.x >= r.size.y
+		var length := r.size.x * size.x if along_x else r.size.y * size.z
+		var count := clampi(roundi(length / light_spacing), 1, max_lights_per_corridor)
+		for i in count:
+			var t := (i + 0.5) / count
+			var light := light_scene.instantiate() as CorridorLight
+			if light == null:
+				push_warning("light_scene's root node needs the CorridorLight.gd script.")
+				return
+			if along_x:
+				light.position = Vector3((r.position.x + r.size.x * t) * size.x, 0.0, (r.position.y + r.size.y * 0.5) * size.z)
+			else:
+				light.position = Vector3((r.position.x + r.size.x * 0.5) * size.x, 0.0, (r.position.y + r.size.y * t) * size.z)
+				light.rotation.y = PI / 2
+			_light_nodes.add_child(light)
+			light.setup(rng.randf() < dead_light_chance, rng.randf() < flicker_chance)
 
 # Array.shuffle() ignores seed; use rng directly
 func _shuffle(arr: Array) -> void:

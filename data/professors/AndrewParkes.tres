@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Professor" format=3 uid="uid://bsc6k8h4c4vtw"]
 
 [ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_faibg"]
+[ext_resource type="AudioStream" uid="uid://b3i03ijikhmhb" path="res://assets/audio/NISMESSI.mp3" id="2_jpdee"]
 
 [resource]
 script = ExtResource("1_faibg")
 name = "Andrew Parkes"
+voice_note = ExtResource("2_jpdee")
 metadata/_custom_type_script = "uid://cbkjcgkx4gw01"

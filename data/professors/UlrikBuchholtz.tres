@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Professor" format=3 uid="uid://l5y82yfu55xm"]
 
 [ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_0ntbt"]
+[ext_resource type="AudioStream" uid="uid://b2r6crwencb2q" path="res://assets/audio/SHINYSWEATYMEN.mp3" id="2_jgmyr"]
 
 [resource]
 script = ExtResource("1_0ntbt")
 name = "Ulrik Buchholtz"
+voice_note = ExtResource("2_jgmyr")
 metadata/_custom_type_script = "uid://cbkjcgkx4gw01"

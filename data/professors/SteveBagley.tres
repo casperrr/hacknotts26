@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Professor" format=3 uid="uid://c2ecu1oacbp2v"]
 
 [ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_fw2q1"]
+[ext_resource type="AudioStream" uid="uid://bq5yktgdx5fti" path="res://assets/audio/MEATANDPOTATOES.mp3" id="2_vx05c"]
 
 [resource]
 script = ExtResource("1_fw2q1")
 name = "Steve Bagley"
+voice_note = ExtResource("2_vx05c")
 metadata/_custom_type_script = "uid://cbkjcgkx4gw01"

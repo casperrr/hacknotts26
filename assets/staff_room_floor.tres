@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://baalwnfwqxsem"]
+
+[ext_resource type="Texture2D" uid="uid://drjx0gympggey" path="res://addons/psx_office_kit/atlas.png" id="1"]
+
+[resource]
+resource_name = "props"
+vertex_color_use_as_albedo = true
+albedo_color = Color(1.5113056e-05, 0.99898046, 0, 1)
+albedo_texture = ExtResource("1")
+metallic_specular = 0.0
+texture_filter = 0

@@ -23,6 +23,11 @@ const EMPTY := -1 # Behind locked doors
 @export_range(0.0, 1.0) var dead_light_chance := 0.2
 @export_range(0.0, 1.0) var flicker_chance := 0.25
 
+@export var spotlight_spacing := 6.0
+@export var spotlight_range := 8.0
+@export var spotlight_energy := 2.0
+var _spotlight_nodes: Node3D
+
 @onready var grid_map: GridMap = $GridMap
 @onready var furniture_map: GridMap = $Furniture
 
@@ -259,6 +264,64 @@ func _longest_view(from: Vector2i) -> Vector2i:
 			best = dir
 			best_run = run
 	return best
+
+func _place_spotlights() -> void:
+	if is_instance_valid(_spotlight_nodes):
+		_spotlight_nodes.queue_free()
+
+	_spotlight_nodes = Node3D.new()
+	_spotlight_nodes.name = "Spotlights"
+	grid_map.add_child(_spotlight_nodes)
+
+	var corridor: Array[Vector2i] = []
+	for cell: Vector2i in tiles:
+		if tiles[cell] == FLOOR:
+			corridor.append(cell)
+
+	if corridor.is_empty():
+		return
+
+	# Dictionary iteration order is not guaranteed, so sort the cells before
+	# using them to accumulate distance.
+	corridor.sort_custom(func(a: Vector2i, b: Vector2i) -> bool:
+		if a.y == b.y:
+			return a.x < b.x
+		return a.y < b.y
+	)
+
+	var cell_size := grid_map.cell_size
+	var distance_since_last := spotlight_spacing
+
+	for i in corridor.size():
+		var cell := corridor[i]
+
+		if i > 0:
+			var previous := corridor[i - 1]
+			distance_since_last += Vector2(
+				float(cell.x - previous.x) * cell_size.x,
+				float(cell.y - previous.y) * cell_size.z
+			).length()
+
+		if distance_since_last < spotlight_spacing:
+			continue
+
+		var spotlight := SpotLight3D.new()
+		spotlight.name = "Spotlight_%d" % i
+		spotlight.position = Vector3(
+			(cell.x + 0.5) * cell_size.x,
+			cell_size.y - 0.1,
+			(cell.y + 0.5) * cell_size.z
+		)
+
+		# SpotLight3D points along -Z by default. Rotate it to point downward.
+		spotlight.rotation.x = -PI / 2.0
+		spotlight.range = spotlight_range
+		spotlight.energy = spotlight_energy
+		spotlight.spot_angle = 55.0
+		spotlight.shadow_enabled = true
+
+		_spotlight_nodes.add_child(spotlight)
+		distance_since_last = 0.0
 
 func _build() -> void:
 	grid_map.clear()

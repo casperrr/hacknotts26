@@ -1,0 +1,941 @@
+{
+ "atlas": 2048,
+ "atlas_used": 128,
+ "fps": 30,
+ "props": [
+  {
+   "name": "floor_carpet",
+   "title": "Carpet Tile Floor",
+   "group": "floors",
+   "place": "floor",
+   "note": "2 x 2 m of blue-grey carpet tiles",
+   "tris": 8,
+   "size": [
+    2.0,
+    2.0,
+    0.0
+   ],
+   "min": [
+    -1.0,
+    -1.0,
+    0.0
+   ],
+   "max": [
+    1.0,
+    1.0,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "floor_carpet",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 8,
+     "min": [
+      -1.0,
+      -1.0,
+      0.0
+     ],
+     "max": [
+      1.0,
+      1.0,
+      0.0
+     ]
+    }
+   ],
+   "anims": []
+  },
+  {
+   "name": "ceiling_tiles",
+   "title": "Ceiling Tiles",
+   "group": "ceilings",
+   "place": "floor",
+   "note": "hangs at 3 m",
+   "tris": 8,
+   "size": [
+    2.0,
+    2.0,
+    0.0
+   ],
+   "min": [
+    -1.0,
+    -1.0,
+    3.0
+   ],
+   "max": [
+    1.0,
+    1.0,
+    3.0
+   ],
+   "parts": [
+    {
+     "name": "ceiling_tiles",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 8,
+     "min": [
+      -1.0,
+      -1.0,
+      3.0
+     ],
+     "max": [
+      1.0,
+      1.0,
+      3.0
+     ]
+    }
+   ],
+   "anims": []
+  },
+  {
+   "name": "wall_office",
+   "title": "Office Wall",
+   "group": "walls",
+   "place": "floor",
+   "note": "eggshell paint over a vinyl base",
+   "tris": 28,
+   "size": [
+    2.0,
+    0.2,
+    3.0
+   ],
+   "min": [
+    -1.0,
+    -0.1,
+    0.0
+   ],
+   "max": [
+    1.0,
+    0.1,
+    3.0
+   ],
+   "parts": [
+    {
+     "name": "wall_office",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 28,
+     "min": [
+      -1.0,
+      -0.1,
+      0.0
+     ],
+     "max": [
+      1.0,
+      0.1,
+      3.0
+     ]
+    }
+   ],
+   "anims": []
+  },
+  {
+   "name": "wall_doorway",
+   "title": "Office Doorway",
+   "group": "walls",
+   "place": "floor",
+   "note": "office both sides",
+   "tris": 56,
+   "size": [
+    2.0,
+    0.2,
+    3.0
+   ],
+   "min": [
+    -1.0,
+    -0.1,
+    0.0
+   ],
+   "max": [
+    1.0,
+    0.1,
+    3.0
+   ],
+   "parts": [
+    {
+     "name": "wall_doorway",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 20,
+     "min": [
+      -1.0,
+      -0.1,
+      0.0
+     ],
+     "max": [
+      -0.5,
+      0.1,
+      3.0
+     ]
+    },
+    {
+     "name": "wall_doorway_1",
+     "parent": "wall_doorway",
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 16,
+     "min": [
+      -0.5,
+      -0.1,
+      2.2
+     ],
+     "max": [
+      0.5,
+      0.1,
+      3.0
+     ]
+    },
+    {
+     "name": "wall_doorway_2",
+     "parent": "wall_doorway",
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 20,
+     "min": [
+      0.5,
+      -0.1,
+      0.0
+     ],
+     "max": [
+      1.0,
+      0.1,
+      3.0
+     ]
+    }
+   ],
+   "anims": []
+  },
+  {
+   "name": "wall_window",
+   "title": "Office Window Wall",
+   "group": "walls",
+   "place": "floor",
+   "note": "fits the ribbon windows; precast outside",
+   "tris": 68,
+   "size": [
+    2.0,
+    0.2,
+    3.0
+   ],
+   "min": [
+    -1.0,
+    -0.1,
+    0.0
+   ],
+   "max": [
+    1.0,
+    0.1,
+    3.0
+   ],
+   "parts": [
+    {
+     "name": "wall_window",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 20,
+     "min": [
+      -1.0,
+      -0.1,
+      0.0
+     ],
+     "max": [
+      -0.9,
+      0.1,
+      3.0
+     ]
+    },
+    {
+     "name": "wall_window_1",
+     "parent": "wall_window",
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 12,
+     "min": [
+      -0.9,
+      -0.1,
+      0.0
+     ],
+     "max": [
+      0.9,
+      0.1,
+      0.8
+     ]
+    },
+    {
+     "name": "wall_window_2",
+     "parent": "wall_window",
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 16,
+     "min": [
+      -0.9,
+      -0.1,
+      2.6
+     ],
+     "max": [
+      0.9,
+      0.1,
+      3.0
+     ]
+    },
+    {
+     "name": "wall_window_3",
+     "parent": "wall_window",
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 20,
+     "min": [
+      0.9,
+      -0.1,
+      0.0
+     ],
+     "max": [
+      1.0,
+      0.1,
+      3.0
+     ]
+    }
+   ],
+   "anims": []
+  },
+  {
+   "name": "wall_post_office",
+   "title": "Office Post",
+   "group": "walls",
+   "place": "floor",
+   "note": "fills the corner where walls meet",
+   "tris": 26,
+   "size": [
+    0.2,
+    0.2,
+    3.0
+   ],
+   "min": [
+    -0.1,
+    -0.1,
+    0.0
+   ],
+   "max": [
+    0.1,
+    0.1,
+    3.0
+   ],
+   "parts": [
+    {
+     "name": "wall_post_office",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 26,
+     "min": [
+      -0.1,
+      -0.1,
+      0.0
+     ],
+     "max": [
+      0.1,
+      0.1,
+      3.0
+     ]
+    }
+   ],
+   "anims": []
+  },
+  {
+   "name": "door_office",
+   "title": "Office Door",
+   "group": "doors",
+   "place": "floor",
+   "note": "oak veneer, a vision light; swings open",
+   "tris": 96,
+   "size": [
+    1.14,
+    0.24,
+    2.27
+   ],
+   "min": [
+    -0.57,
+    -0.12,
+    0.0
+   ],
+   "max": [
+    0.57,
+    0.12,
+    2.27
+   ],
+   "parts": [
+    {
+     "name": "door_office",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 12,
+     "min": [
+      -0.57,
+      -0.12,
+      0.0
+     ],
+     "max": [
+      -0.49,
+      0.12,
+      2.27
+     ]
+    },
+    {
+     "name": "door_office_casing_r",
+     "parent": "door_office",
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 12,
+     "min": [
+      0.49,
+      -0.12,
+      0.0
+     ],
+     "max": [
+      0.57,
+      0.12,
+      2.27
+     ]
+    },
+    {
+     "name": "door_office_casing_top",
+     "parent": "door_office",
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 12,
+     "min": [
+      -0.51,
+      -0.12,
+      2.19
+     ],
+     "max": [
+      0.51,
+      0.12,
+      2.26
+     ]
+    },
+    {
+     "name": "door_office_leaf",
+     "parent": "door_office",
+     "pivot": [
+      -0.48,
+      0.0,
+      0.0
+     ],
+     "tris": 60,
+     "min": [
+      -0.48,
+      -0.0675,
+      0.01
+     ],
+     "max": [
+      0.48,
+      0.0675,
+      2.19
+     ]
+    }
+   ],
+   "anims": [
+    {
+     "name": "open",
+     "seconds": 2.4,
+     "loop": false
+    }
+   ]
+  },
+  {
+   "name": "window_office",
+   "title": "Office Window",
+   "group": "windows",
+   "place": "floor",
+   "note": "its vent light tips open; in a window wall",
+   "tris": 108,
+   "size": [
+    1.9,
+    0.28,
+    1.8
+   ],
+   "min": [
+    -0.95,
+    -0.17,
+    0.8
+   ],
+   "max": [
+    0.95,
+    0.11,
+    2.6
+   ],
+   "parts": [
+    {
+     "name": "window_office",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 80,
+     "min": [
+      -0.95,
+      -0.17,
+      0.8
+     ],
+     "max": [
+      0.95,
+      0.11,
+      2.6
+     ]
+    },
+    {
+     "name": "window_office_vent",
+     "parent": "window_office",
+     "pivot": [
+      0.0,
+      0.04,
+      2.55
+     ],
+     "tris": 28,
+     "min": [
+      -0.85,
+      0.02,
+      2.175
+     ],
+     "max": [
+      0.85,
+      0.06,
+      2.545
+     ]
+    }
+   ],
+   "anims": [
+    {
+     "name": "open",
+     "seconds": 1.8,
+     "loop": false
+    }
+   ]
+  },
+  {
+   "name": "cubicle_panel",
+   "title": "Cubicle Panel",
+   "group": "cubicles",
+   "place": "floor",
+   "note": "2 m, 1.6 m high, fabric both sides",
+   "tris": 52,
+   "size": [
+    2.0,
+    0.07,
+    1.625
+   ],
+   "min": [
+    -1.0,
+    -0.035,
+    0.0
+   ],
+   "max": [
+    1.0,
+    0.035,
+    1.625
+   ],
+   "parts": [
+    {
+     "name": "cubicle_panel",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 52,
+     "min": [
+      -1.0,
+      -0.035,
+      0.0
+     ],
+     "max": [
+      1.0,
+      0.035,
+      1.6245
+     ]
+    }
+   ],
+   "anims": []
+  },
+  {
+   "name": "cubicle_post",
+   "title": "Cubicle Post",
+   "group": "cubicles",
+   "place": "floor",
+   "note": "joins panels at a corner or a T",
+   "tris": 12,
+   "size": [
+    0.08,
+    0.08,
+    1.63
+   ],
+   "min": [
+    -0.04,
+    -0.04,
+    0.0
+   ],
+   "max": [
+    0.04,
+    0.04,
+    1.63
+   ],
+   "parts": [
+    {
+     "name": "cubicle_post",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 12,
+     "min": [
+      -0.04,
+      -0.04,
+      0.0
+     ],
+     "max": [
+      0.04,
+      0.04,
+      1.63
+     ]
+    }
+   ],
+   "anims": []
+  },
+  {
+   "name": "cubicle_desk_corner",
+   "title": "Corner Cubicle Desk",
+   "group": "cubicles",
+   "place": "floor",
+   "note": "an L round a cell's corner; its panels on the north and west edges",
+   "tris": 98,
+   "size": [
+    1.87,
+    1.87,
+    0.731
+   ],
+   "min": [
+    -0.97,
+    -0.9,
+    0.0
+   ],
+   "max": [
+    0.9,
+    0.97,
+    0.731
+   ],
+   "parts": [
+    {
+     "name": "cubicle_desk_corner",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 98,
+     "min": [
+      -0.97,
+      -0.9,
+      0.0
+     ],
+     "max": [
+      0.9,
+      0.97,
+      0.7309
+     ]
+    }
+   ],
+   "anims": []
+  },
+  {
+   "name": "overhead_bin",
+   "title": "Overhead Bin",
+   "group": "cubicles",
+   "place": "wall",
+   "note": "hung on a panel; its door lifts",
+   "tris": 240,
+   "size": [
+    1.2,
+    0.37,
+    0.415
+   ],
+   "min": [
+    -0.6,
+    -0.37,
+    1.165
+   ],
+   "max": [
+    0.6,
+    0.0,
+    1.58
+   ],
+   "parts": [
+    {
+     "name": "overhead_bin",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 228,
+     "min": [
+      -0.6,
+      -0.36,
+      1.165
+     ],
+     "max": [
+      0.6,
+      0.0,
+      1.58
+     ]
+    },
+    {
+     "name": "overhead_bin_door",
+     "parent": "overhead_bin",
+     "pivot": [
+      0.0,
+      -0.36,
+      1.57
+     ],
+     "tris": 12,
+     "min": [
+      -0.59,
+      -0.37,
+      1.21
+     ],
+     "max": [
+      0.59,
+      -0.35,
+      1.57
+     ]
+    }
+   ],
+   "anims": [
+    {
+     "name": "open",
+     "seconds": 1.4,
+     "loop": false
+    }
+   ]
+  },
+  {
+   "name": "task_chair",
+   "title": "Task Chair",
+   "group": "cubicles",
+   "place": "floor",
+   "note": "fabric, on casters; its seat turns slowly by itself",
+   "tris": 304,
+   "size": [
+    0.6,
+    0.844,
+    1.113
+   ],
+   "min": [
+    -0.275,
+    -0.33,
+    0.008
+   ],
+   "max": [
+    0.325,
+    0.514,
+    1.121
+   ],
+   "parts": [
+    {
+     "name": "task_chair",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 180,
+     "min": [
+      -0.2677,
+      -0.3303,
+      0.0083
+     ],
+     "max": [
+      0.325,
+      0.2915,
+      0.4
+     ]
+    },
+    {
+     "name": "task_chair_seat",
+     "parent": "task_chair",
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 124,
+     "min": [
+      -0.275,
+      -0.23,
+      0.38
+     ],
+     "max": [
+      0.275,
+      0.5141,
+      1.1213
+     ]
+    }
+   ],
+   "anims": [
+    {
+     "name": "turn",
+     "seconds": 6.0,
+     "loop": true
+    }
+   ]
+  },
+  {
+   "name": "crt_monitor",
+   "title": "CRT Monitor",
+   "group": "equipment",
+   "place": "item",
+   "note": "",
+   "tris": 80,
+   "size": [
+    0.375,
+    0.35,
+    0.35
+   ],
+   "min": [
+    -0.188,
+    -0.07,
+    0.0
+   ],
+   "max": [
+    0.188,
+    0.28,
+    0.35
+   ],
+   "parts": [
+    {
+     "name": "crt_monitor",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 80,
+     "min": [
+      -0.1875,
+      -0.07,
+      0.0
+     ],
+     "max": [
+      0.1875,
+      0.28,
+      0.35
+     ]
+    }
+   ],
+   "anims": []
+  },
+  {
+   "name": "ceiling_light",
+   "title": "Ceiling Light",
+   "group": "lights",
+   "place": "floor",
+   "note": "a fluorescent panel",
+   "tris": 12,
+   "size": [
+    1.22,
+    0.62,
+    0.08
+   ],
+   "min": [
+    -0.61,
+    -0.31,
+    2.92
+   ],
+   "max": [
+    0.61,
+    0.31,
+    3.0
+   ],
+   "parts": [
+    {
+     "name": "ceiling_light",
+     "parent": null,
+     "pivot": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "tris": 12,
+     "min": [
+      -0.61,
+      -0.31,
+      2.92
+     ],
+     "max": [
+      0.61,
+      0.31,
+      3.0
+     ]
+    }
+   ],
+   "anims": []
+  }
+ ]
+}

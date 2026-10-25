@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://l3aco6bho01f"]
+
+[ext_resource type="Script" uid="uid://l16q7npmubis" path="res://scenes/player/colin_johnson.gd" id="1_i68jq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_umclc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_umclc"]
+
+[node name="ColinJohnson" type="CharacterBody3D" unique_id=971719043]
+script = ExtResource("1_i68jq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1746710718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_umclc")
+
+[node name="Visual" type="Node3D" parent="." unique_id=2133934871]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual" unique_id=1828258700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_umclc")
+
+[node name="Head" type="Node3D" parent="." unique_id=1358755945]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4092934, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1739630769]

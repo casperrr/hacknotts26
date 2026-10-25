@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d2y4lk87akkub"]
+
+[ext_resource type="Texture2D" uid="uid://jgxkivf3v3xe" path="res://assets/angry_mail/Frame2.png" id="1_55vt1"]
+[ext_resource type="Texture2D" uid="uid://cjyv4w68anfve" path="res://assets/angry_mail/Frame1.png" id="2_jfb80"]
+[ext_resource type="Texture2D" uid="uid://dn88f60j4xb1w" path="res://assets/angry_mail/Frame3.png" id="3_g0r3y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kel0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_55vt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jfb80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g0r3y")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EvilMailAnimation" type="AnimatedSprite3D" unique_id=1257684548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1010642, 0)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_kel0k")
+frame_progress = 0.17314807

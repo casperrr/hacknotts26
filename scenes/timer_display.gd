@@ -8,4 +8,4 @@ func get_formatted_time(time: float) -> String:
 	var minutes_left : int = time / 60
 	var seconds_left : int = (round(int(time)) % 60)
 	
-	return "%s:%s" % [str(minutes_left), str(seconds_left)]
+	return "%d:%02d" % [minutes_left, seconds_left]

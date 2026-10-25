@@ -29,4 +29,4 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="." unique_id=481177805]
 one_shot = true
 script = ExtResource("1_srplv")
-duration = 300.0
+duration = 15.0

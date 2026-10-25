@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Professor" format=3 uid="uid://ck07irbgbpllk"]
+
+[ext_resource type="Texture2D" uid="uid://2kvw0vv5anqd" path="res://assets/professors/jamietwycross.png" id="1_cdflu"]
+[ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_ic8hv"]
+
+[resource]
+script = ExtResource("1_ic8hv")
+name = "Jamie Twycross"
+portrait = ExtResource("1_cdflu")
+metadata/_custom_type_script = "uid://cbkjcgkx4gw01"

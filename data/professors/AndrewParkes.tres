@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Professor" format=3 uid="uid://bsc6k8h4c4vtw"]
 
 [ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_faibg"]
+[ext_resource type="Texture2D" uid="uid://v2wrgcgonsff" path="res://assets/professors/andrewparkes.png" id="1_jpdee"]
 
 [resource]
 script = ExtResource("1_faibg")
 name = "Andrew Parkes"
+portrait = ExtResource("1_jpdee")
 metadata/_custom_type_script = "uid://cbkjcgkx4gw01"

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bbko68u41b8dg"]
+
+[ext_resource type="PackedScene" uid="uid://byne0ib8dpx0y" path="res://scenes/map_manager.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://l3aco6bho01f" path="res://scenes/player/colin_johnson.tscn" id="2_lnu2h"]
+
+[node name="Game" type="Node3D" unique_id=567214724]
+
+[node name="MapManager" parent="." unique_id=560506590 instance=ExtResource("1_yqjtg")]
+
+[node name="ColinJohnson" parent="." unique_id=971719043 instance=ExtResource("2_lnu2h")]

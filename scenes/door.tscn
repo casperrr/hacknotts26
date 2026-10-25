@@ -1,6 +1,43 @@
 [gd_scene format=3 uid="uid://cnf6n6mu4mga6"]
 
 [ext_resource type="Script" uid="uid://cguftmcgyk4or" path="res://scripts/map/Door.gd" id="1_ba8gm"]
+[ext_resource type="PackedScene" path="res://addons/psx_office_kit/props/door_office.tscn" id="2_83dcw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpek1"]
+size = Vector3(2, 2, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lecww"]
+size = Vector3(2, 2, 2.4)
 
 [node name="Door" type="Node3D" unique_id=1190504420]
 script = ExtResource("1_ba8gm")
+
+[node name="Model" parent="." unique_id=575336387 instance=ExtResource("2_83dcw")]
+
+[node name="door_office_leaf" parent="Model/door_office" parent_id_path=PackedInt32Array(575336387, 1425838860) index="2" unique_id=645936593]
+layers = 1048575
+
+[node name="Portrait" type="Sprite3D" parent="Model/door_office/door_office_leaf" index="1" unique_id=1062901102]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 1.4, 0.08)
+
+[node name="Nameplate" type="Label3D" parent="Model/door_office/door_office_leaf" index="2" unique_id=2018011874]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48, 1, 0.08)
+
+[node name="PassBy" type="Area3D" parent="." unique_id=451987632]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PassBy" unique_id=1072032718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+shape = SubResource("BoxShape3D_rpek1")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=183379647]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1340885970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
+shape = SubResource("BoxShape3D_lecww")
+
+[node name="VoiceNote" type="AudioStreamPlayer3D" parent="." unique_id=82007495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[editable path="Model"]

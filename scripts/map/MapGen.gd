@@ -16,6 +16,7 @@ const EMPTY := -1 # Behind locked doors
 @export_range(5, 20) var office_width           := 6
 @export var professors: Array[Professor] = []  # one office each
 @export var door_scene: PackedScene  # root node needs door.gd attached, do not move it
+@export var colin: CharacterBody3D
 
 @onready var grid_map: GridMap = $GridMap
 @onready var furniture_map: GridMap = $Furniture
@@ -60,10 +61,10 @@ func generate() -> void:
 			var row_doors := []
 			for office: Rect2i in _offices(row):
 				var door := _make_door(office, block.rect)
-				if bounds.has_point(door.cell + door.facing):  # skip doors on outer wall
+				if bounds.has_point(door.cell + door.facing):  # skip doors outer wall
 					row_doors.append(door)
 			rows.append(row_doors)
-	_draw_outline(bounds)  # outer wall: corridors that reach the edge are dead ends
+	_draw_outline(bounds)  # outer wall, corridors that reach the edge are dead ends
 
 	staff_room = _take_double(rows)
 	student_services = _take_double(rows)
@@ -83,7 +84,7 @@ func generate() -> void:
 		_open_front(student_services, STUDENT_SERVICES_FLOOR)
 
 	_build()
-
+	_place_colin()
 
 # Takes two neighbouring slots from a random row and merges them into one room - helper to create the staff room!
 func _take_double(rows: Array) -> Dictionary:
@@ -134,8 +135,9 @@ func _special_room(room: Dictionary, floor_id: int, wall_id: int, ceiling_id: in
 	var back := _back_cell(room)
 	tiles[back - f] = logo_id # no logo for the staff room
 	tile_facing[back - f] = f # turn to face into the room
-	furniture[back] = [table_id, f]
-	room.spawn = back + f # im getting lazy man lets hurry this shit up
+	furniture[back] = [CHAIR, f]
+	furniture[back + f] = [table_id, f]
+	room.spawn = back + f * 2 # im getting lazy man lets hurry this shit up
 	var inner: Rect2i = room.office.grow(-1)
 	for x in range(inner.position.x, inner.end.x):
 		for y in range(inner.position.y, inner.end.y):
@@ -220,6 +222,17 @@ func _draw_outline(r: Rect2i, item := WALL) -> void:
 		tiles[Vector2i(r.position.x, y)] = item
 		tiles[Vector2i(r.end.x - 1, y)] = item
 
+func _place_colin() -> void:
+	var corridor: Array[Vector2i] = []
+	for cell: Vector2i in tiles:
+		if tiles[cell] == FLOOR: # only corridors are plain floor
+			corridor.append(cell)
+	if corridor.is_empty():
+		return
+	var spawn := corridor[rng.randi() % corridor.size()]
+	var size := grid_map.cell_size
+	colin.global_position = grid_map.to_global(Vector3((spawn.x + 0.5) * size.x, 0.1, (spawn.y + 0.5) * size.z))
+	colin.velocity = Vector3.ZERO
 
 func _build() -> void:
 	grid_map.clear()
@@ -303,3 +316,7 @@ func _add_box(lib: MeshLibrary, id: int, box_size: Vector3, colour: Color, y: fl
 	lib.create_item(id)
 	lib.set_item_mesh(id, box)
 	lib.set_item_mesh_transform(id, Transform3D(Basis(), Vector3(0, y, 0)))
+	if id not in [CEILING, STAFF_ROOM_CEILING, STUDENT_SERVICES_CEILING]:
+		var shape := BoxShape3D.new()
+		shape.size = box_size
+		lib.set_item_shapes(id, [shape, Transform3D(Basis(), Vector3(0, y, 0))])

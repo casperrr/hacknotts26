@@ -5,6 +5,13 @@
 
 [node name="Game" type="Node3D" unique_id=567214724]
 
-[node name="MapManager" parent="." unique_id=560506590 instance=ExtResource("1_yqjtg")]
+[node name="MapManager" parent="." unique_id=560506590 node_paths=PackedStringArray("colin") instance=ExtResource("1_yqjtg")]
+map_size = Vector2i(50, 50)
+map_seed = 0
+corridor_width = 2
+block_min_size = 10
+block_max_size = 24
+office_width = 6
+colin = NodePath("../ColinJohnson")
 
 [node name="ColinJohnson" parent="." unique_id=971719043 instance=ExtResource("2_lnu2h")]

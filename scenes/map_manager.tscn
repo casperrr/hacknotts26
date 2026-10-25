@@ -2,15 +2,28 @@
 
 [ext_resource type="Script" uid="uid://bmrclgjfr5dag" path="res://scripts/map/MapGen.gd" id="1_k8m7k"]
 [ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="2_b4adm"]
+[ext_resource type="Resource" uid="uid://bsc6k8h4c4vtw" path="res://data/professors/AndrewParkes.tres" id="3_xwqho"]
+[ext_resource type="Resource" uid="uid://v01peq653pg8" path="res://data/professors/BerndStahl.tres" id="4_bqlam"]
+[ext_resource type="Resource" uid="uid://btpeldr463ldj" path="res://data/professors/KristianSporer.tres" id="5_0gfw4"]
+[ext_resource type="Resource" uid="uid://cgnexc6vhfje6" path="res://data/professors/MarjahanBegum.tres" id="6_dtpev"]
+[ext_resource type="Resource" uid="uid://camxhbjiuwomt" path="res://data/professors/MikePound.tres" id="7_28d0s"]
+[ext_resource type="Resource" uid="uid://bbkr2mxh6r8h8" path="res://data/professors/NaziaHameed.tres" id="8_5cn6j"]
+[ext_resource type="Resource" uid="uid://ndvoc84b5sjh" path="res://data/professors/ShailyKabir.tres" id="9_r27nd"]
+[ext_resource type="Resource" uid="uid://c2ecu1oacbp2v" path="res://data/professors/SteveBagley.tres" id="10_qy1xh"]
+[ext_resource type="Resource" uid="uid://b8kr5n37ibjtj" path="res://data/professors/ThorstenAltenkirch.tres" id="11_osnfm"]
+[ext_resource type="Resource" uid="uid://l5y82yfu55xm" path="res://data/professors/UlrikBuchholtz.tres" id="12_bgfrp"]
+[ext_resource type="PackedScene" uid="uid://cnf6n6mu4mga6" path="res://scenes/door.tscn" id="13_bqlam"]
 
 [node name="MapManager" type="Node3D" unique_id=560506590]
 script = ExtResource("1_k8m7k")
-professors = Array[ExtResource("2_b4adm")]([null, null, null, null, null])
+professors = Array[ExtResource("2_b4adm")]([ExtResource("3_xwqho"), ExtResource("4_bqlam"), ExtResource("5_0gfw4"), ExtResource("6_dtpev"), ExtResource("7_28d0s"), ExtResource("8_5cn6j"), ExtResource("9_r27nd"), ExtResource("10_qy1xh"), ExtResource("11_osnfm"), ExtResource("12_bgfrp")])
+door_scene = ExtResource("13_bqlam")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=465327020]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1285842139]
+cell_size = Vector3(2, 3, 2)
 
 [node name="Furniture" type="GridMap" parent="." unique_id=816985118]

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ctwmx4dpkuvfj"]
+
+[node name="Tiles" type="Node3D" unique_id=805191030]
+
+[node name="FLOOR" type="MeshInstance3D" parent="." unique_id=772083921]
+
+[node name="WALL" type="MeshInstance3D" parent="." unique_id=376561181]
+
+[node name="CEILING" type="MeshInstance3D" parent="." unique_id=1753074678]
+
+[node name="OFFICE_FLOOR" type="MeshInstance3D" parent="." unique_id=1519731873]
+
+[node name="DOOR" type="MeshInstance3D" parent="." unique_id=1480744065]
+
+[node name="SPAWN" type="MeshInstance3D" parent="." unique_id=789086949]
+
+[node name="TABLE" type="MeshInstance3D" parent="." unique_id=1285801832]
+
+[node name="COMPUTER" type="MeshInstance3D" parent="." unique_id=1601133499]
+
+[node name="CHAIR" type="MeshInstance3D" parent="." unique_id=517112789]
+
+[node name="STAFF_ROOM_FLOOR" type="MeshInstance3D" parent="." unique_id=1085350619]
+
+[node name="STAFF_ROOM_WALL" type="MeshInstance3D" parent="." unique_id=1771417349]
+
+[node name="STAFF_ROOM_CEILING" type="MeshInstance3D" parent="." unique_id=355674749]
+
+[node name="STAFF_ROOM_TABLE" type="MeshInstance3D" parent="." unique_id=1620784212]
+
+[node name="STUDENT_SERVICES_FLOOR" type="MeshInstance3D" parent="." unique_id=272760341]
+
+[node name="STUDENT_SERVICES_WALL" type="MeshInstance3D" parent="." unique_id=1994658110]
+
+[node name="STUDENT_SERVICES_CEILING" type="MeshInstance3D" parent="." unique_id=604657482]
+
+[node name="STUDENT_SERVICES_DESK" type="MeshInstance3D" parent="." unique_id=123952761]
+
+[node name="STUDENT_SERVICES_WALL_LOGO" type="MeshInstance3D" parent="." unique_id=1393878174]

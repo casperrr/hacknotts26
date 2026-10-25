@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Professor" format=3 uid="uid://bbkr2mxh6r8h8"]
+
+[ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_5g2c7"]
+
+[resource]
+script = ExtResource("1_5g2c7")
+name = "Nazia Hameed"
+metadata/_custom_type_script = "uid://cbkjcgkx4gw01"

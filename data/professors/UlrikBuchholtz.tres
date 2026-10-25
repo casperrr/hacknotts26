@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Professor" format=3 uid="uid://l5y82yfu55xm"]
+
+[ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_0ntbt"]
+
+[resource]
+script = ExtResource("1_0ntbt")
+name = "Ulrik Buchholtz"
+metadata/_custom_type_script = "uid://cbkjcgkx4gw01"

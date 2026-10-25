@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Professor" format=3 uid="uid://c2ecu1oacbp2v"]
+
+[ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_fw2q1"]
+
+[resource]
+script = ExtResource("1_fw2q1")
+name = "Steve Bagley"
+metadata/_custom_type_script = "uid://cbkjcgkx4gw01"

@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Professor" format=3 uid="uid://cgnexc6vhfje6"]
 
+[ext_resource type="Texture2D" uid="uid://dkl0wmmmolrmx" path="res://assets/professors/marjahanberguran.png" id="1_8y4d7"]
 [ext_resource type="Script" uid="uid://cbkjcgkx4gw01" path="res://scripts/map/Professor.gd" id="1_ym38t"]
 
 [resource]
 script = ExtResource("1_ym38t")
 name = "Marjahan Begum"
+portrait = ExtResource("1_8y4d7")
 metadata/_custom_type_script = "uid://cbkjcgkx4gw01"
